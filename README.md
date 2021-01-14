@@ -57,6 +57,32 @@
     Use 'file' to understand theh filetype after each step
     Use a combination of gunzip/tar/bunzip to extract the filenames
 
+## Level 14:
+    Specify private key file using the -i param in ssh
+    Use ssh bandit14@localhost -i private_key_file.sshkey
+
+## Level 15:
+    Use netcat to write the old password to port 30000
+    echo "4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e" | nc localhost 30000
+
+## Level 16:
+    Use openssl s_client to connect to localhost at port 30001
+        openssl s_client -connect localhost:30001
+    Submit current password to get the next one
+
+## Level 17:
+    Scan the range of ports using nmap:
+        nmap -p 31000-32000 -sV
+        sV is used for identifying services running on each port to find the SSL service
+    Create the private_key_file.sshkey
+    Update permissions for private_key_file.ssh using chmod
+    Connect to bandit17 using ssh
+    Use diff to compare the two files
+
+## Level 18:
+    ssh lets us execute commands while it's connecting
+    Append cat readme to view the password before getting disconnected
+        ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
 
 
 
